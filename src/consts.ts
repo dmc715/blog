@@ -8,6 +8,11 @@ export const SITE_DESCRIPTION =
 // Each series groups posts via the `series` frontmatter field.
 export const SERIES = [
 	{
+		id: 'agi-qa',
+		title: 'Simulated Q&A on AGI',
+		description: '',
+	},
+	{
 		id: 'lair',
 		title: 'Project LAIR',
 		description: 'Learnings from experience working with an artist',

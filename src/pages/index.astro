@@ -40,7 +40,7 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 							<h4>
 								<a href={`/${series.id}/`}>{series.title}</a>
 							</h4>
-							<p class="series-description">{series.description}</p>
+							{series.description && <p class="series-description">{series.description}</p>}
 						</div>
 						<ul class="post-list">
 							{series.posts.map((post) => (

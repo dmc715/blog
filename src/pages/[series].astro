@@ -28,7 +28,7 @@ const posts = (await getCollection('blog'))
 		<main>
 			<div class="series-title">
 				<h1>{series.title}</h1>
-				<p>{series.description}</p>
+				{series.description && <p>{series.description}</p>}
 			</div>
 			<ul class="post-list">
 				{
