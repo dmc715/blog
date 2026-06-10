@@ -1,5 +1,5 @@
 ---
-title: 'Richard Sutton on Experience: A Sourced Q&A'
+title: 'Richard Sutton on Experience'
 description: 'Exploring experiential learning, the “Era of Experience,” and the foundations of reinforcement learning'
 pubDate: '2026-06-09'
 series: 'agi-qa'
