@@ -15,6 +15,6 @@ export const SERIES = [
 	{
 		id: 'lair',
 		title: 'Project LAIR',
-		description: 'Learnings from experience working with an artist',
+		description: 'Lessons from working with an artist',
 	},
 ];
