@@ -136,3 +136,29 @@ hr {
 	clip-path: inset(50%);
 	white-space: nowrap;
 }
+
+/* Q&A post elements */
+.source {
+	font-size: 0.85em;
+	color: #5a5a56;
+	margin-top: -0.4em;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 0 1.5em 0;
+	font-size: 0.95em;
+}
+
+th,
+td {
+	border: 1px solid rgb(196, 196, 190);
+	padding: 0.5em 0.75em;
+	text-align: left;
+	vertical-align: top;
+}
+
+table tr:first-child td {
+	font-family: var(--font-syne), 'Syne', sans-serif;
+	color: var(--navy);
+}

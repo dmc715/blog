@@ -7,9 +7,14 @@ import { SERIES } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, series: seriesId } = Astro.props;
+const { title, description, pubDate, series: seriesId, location } = Astro.props;
 const series = SERIES.find((s) => s.id === seriesId);
-const dateLabel = `${pubDate.toLocaleDateString('en-US', { month: 'short' })}, ${pubDate.getFullYear()}`;
+const dateLabel = pubDate.toLocaleDateString('en-US', {
+	month: 'short',
+	day: 'numeric',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
 ---
 
 <html lang="en">
@@ -50,7 +55,7 @@ const dateLabel = `${pubDate.toLocaleDateString('en-US', { month: 'short' })}, $
 						)
 					}
 					<h1>{title}</h1>
-					<div class="date">{dateLabel}</div>
+					<div class="date">{location ? `${dateLabel} · ${location}` : dateLabel}</div>
 				</div>
 				<slot />
 			</article>
