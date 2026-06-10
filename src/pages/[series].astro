@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { series } = Astro.props;
 const posts = (await getCollection('blog'))
 	.filter((p) => p.data.series === series.id)
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
