@@ -17,12 +17,18 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main>
-			<p class="intro">
-				Where mindful reflection and design-driven thinking synthesize meaning and reveal the next
-				self-crafted &ldquo;stepping stones&rdquo; on my continuous journey to discover novelty&hellip;
-			</p>
-			<section>
+		<main class="home">
+			<section class="intro">
+				<p>
+					Where mindful reflection and design-driven thinking synthesize meaning and reveal the next
+					self-crafted &ldquo;stepping stones&rdquo; on my continuous journey to discover
+					novelty&hellip;
+				</p>
+			</section>
+			<section class="image-band">
+				<img src="/images/home.webp" alt="" />
+			</section>
+			<section class="lane">
 				<h4>Synthesis Lane</h4>
 				<ul class="post-list">
 					{
@@ -44,11 +50,41 @@ const posts = (await getCollection('blog')).sort(
 </html>
 
 <style>
-	.intro {
-		margin: 2em 0 3em 0;
+	main.home {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
 	}
-	h4 {
-		margin-bottom: 1.5rem;
+	.intro {
+		padding: 9em 2.5em;
+	}
+	.intro p {
+		max-width: 48em;
+		margin: 0;
+	}
+	.image-band {
+		width: 100%;
+		height: 46vw;
+		min-height: 320px;
+		max-height: 560px;
+	}
+	.image-band img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: 50% 50%;
+		display: block;
+		border-radius: 0;
+	}
+	.lane {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2em;
+		padding: 4em 2.5em;
+	}
+	.lane h4 {
+		margin: 0;
 	}
 	.post-list {
 		list-style: none;
@@ -56,15 +92,19 @@ const posts = (await getCollection('blog')).sort(
 		padding: 0;
 	}
 	.post-list li {
-		margin-bottom: 2em;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75em;
+		align-items: baseline;
+		margin-bottom: 1.6em;
 	}
 	.post-list a {
-		display: block;
 		font-family: var(--font-syne), 'Syne', sans-serif;
 		font-size: 1.45rem;
 		letter-spacing: -0.02em;
 		color: var(--navy);
 		text-decoration: none;
+		line-height: 1.17;
 	}
 	.post-list a:hover {
 		text-decoration: underline;
@@ -72,5 +112,14 @@ const posts = (await getCollection('blog')).sort(
 	}
 	.post-list .date {
 		font-size: 1rem;
+	}
+	@media (max-width: 720px) {
+		.intro {
+			padding: 5em 1.5em;
+		}
+		.lane {
+			grid-template-columns: 1fr;
+			padding: 3em 1.5em;
+		}
 	}
 </style>
