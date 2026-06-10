@@ -47,8 +47,7 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 								<li>
 									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
 									<span class="date">
-										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
-										{post.data.pubDate.getFullYear()}
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
 									</span>
 								</li>
 							))}
@@ -65,8 +64,7 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 								<li>
 									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
 									<span class="date">
-										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
-										{post.data.pubDate.getFullYear()}
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
 									</span>
 								</li>
 							))}
