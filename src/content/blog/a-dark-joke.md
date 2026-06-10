@@ -4,8 +4,6 @@ description: 'Over the past year I''ve been producing a large, collaborative pro
 pubDate: '2025-09-03'
 ---
 
-Sep, 2025
-
 **A Dark Joke — How Design Thinking Could and Should Be Applied to Risks**
 
 Over the past year I've been producing a large, collaborative project that sits at the intersection of art, engineering, and staged experience. It's a project we've invested in significantly—financially, operationally, and conceptually—with multiple teams contributing and a fixed public opening on the horizon. My role has been to hold the overall structure: aligning partners, coordinating fabrication, and making sure the work ultimately stands in the world as promised.

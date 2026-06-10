@@ -4,8 +4,6 @@ description: 'After the project I wrote about in my previous post, I realized th
 pubDate: '2025-10-06'
 ---
 
-Oct, 2025
-
 **Designing a Backbone for Experimental Work**
 
 After the project I wrote about in my previous post, I realized the issue wasn’t only communication or personalities. What was missing was a **backbone**—a simple structural logic that could carry ambitious, experimental work without requiring constant heroics from everyone involved.

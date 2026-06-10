@@ -4,8 +4,6 @@ description: 'In my first two posts, I wrote about explorative risks in boundary
 pubDate: '2025-11-09'
 ---
 
-Nov, 2025
-
 **A Platform to Make Explorative Risks Bearable**
 
 In my first two posts, I wrote about explorative risks in boundary-pushing creativity work from two angles.
