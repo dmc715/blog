@@ -2,6 +2,7 @@
 title: 'An Aching Bone'
 description: 'After the project I wrote about in my previous post, I realized the issue wasn’t only communication or personalities. What was missing was…'
 pubDate: '2025-10-06'
+series: 'lair'
 ---
 
 **Designing a Backbone for Experimental Work**

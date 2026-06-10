@@ -3,10 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { SERIES } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, pubDate, series: seriesId } = Astro.props;
+const series = SERIES.find((s) => s.id === seriesId);
 const dateLabel = `${pubDate.toLocaleDateString('en-US', { month: 'short' })}, ${pubDate.getFullYear()}`;
 ---
 
@@ -20,6 +22,18 @@ const dateLabel = `${pubDate.toLocaleDateString('en-US', { month: 'short' })}, $
 			.date {
 				margin-top: 0.75em;
 			}
+			.series-label {
+				display: inline-block;
+				font-family: var(--font-syne), 'Syne', sans-serif;
+				font-size: 1rem;
+				letter-spacing: -0.01em;
+				color: var(--navy);
+				text-decoration: none;
+				margin-bottom: 1em;
+			}
+			.series-label:hover {
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 
@@ -28,6 +42,13 @@ const dateLabel = `${pubDate.toLocaleDateString('en-US', { month: 'short' })}, $
 		<main>
 			<article>
 				<div class="title">
+					{
+						series && (
+							<a class="series-label" href={`/${series.id}/`}>
+								{series.title}
+							</a>
+						)
+					}
 					<h1>{title}</h1>
 					<div class="date">{dateLabel}</div>
 				</div>

@@ -2,6 +2,7 @@
 title: 'An Antidote In the Making'
 description: 'In my first two posts, I wrote about explorative risks in boundary-pushing creativity work from two angles.'
 pubDate: '2025-11-09'
+series: 'lair'
 ---
 
 **A Platform to Make Explorative Risks Bearable**

@@ -2,6 +2,7 @@
 title: 'A Dark Joke'
 description: 'Over the past year I''ve been producing a large, collaborative project that sits at the intersection of art, engineering, and staged…'
 pubDate: '2025-09-03'
+series: 'lair'
 ---
 
 **A Dark Joke — How Design Thinking Could and Should Be Applied to Risks**

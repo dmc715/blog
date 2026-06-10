@@ -3,11 +3,16 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SERIES, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
+const sections = SERIES.map((series) => ({
+	...series,
+	posts: posts.filter((p) => p.data.series === series.id),
+}));
+const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series));
 ---
 
 <!doctype html>
@@ -28,22 +33,47 @@ const posts = (await getCollection('blog')).sort(
 			<section class="image-band">
 				<img src="/images/home.webp" alt="" />
 			</section>
-			<section class="lane">
-				<h4>Synthesis Lane</h4>
-				<ul class="post-list">
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>{post.data.title}</a>
-								<span class="date">
-									{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
-									{post.data.pubDate.getFullYear()}
-								</span>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+			{
+				sections.map((series) => (
+					<section class="lane">
+						<div class="series-heading">
+							<h4>
+								<a href={`/${series.id}/`}>{series.title}</a>
+							</h4>
+							<p class="series-description">{series.description}</p>
+						</div>
+						<ul class="post-list">
+							{series.posts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+									<span class="date">
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
+										{post.data.pubDate.getFullYear()}
+									</span>
+								</li>
+							))}
+						</ul>
+					</section>
+				))
+			}
+			{
+				unsorted.length > 0 && (
+					<section class="lane">
+						<h4>Other Writing</h4>
+						<ul class="post-list">
+							{unsorted.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+									<span class="date">
+										{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
+										{post.data.pubDate.getFullYear()}
+									</span>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
 		</main>
 		<Footer />
 	</body>
@@ -85,6 +115,18 @@ const posts = (await getCollection('blog')).sort(
 	}
 	.lane h4 {
 		margin: 0;
+	}
+	.lane h4 a {
+		color: var(--navy);
+		text-decoration: none;
+	}
+	.lane h4 a:hover {
+		text-decoration: underline;
+		opacity: 1;
+	}
+	.series-description {
+		margin: 0.6em 0 0 0;
+		max-width: 24em;
 	}
 	.post-list {
 		list-style: none;

@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SERIES, SITE_TITLE } from '../consts';
+
+export async function getStaticPaths() {
+	return SERIES.map((series) => ({
+		params: { series: series.id },
+		props: { series },
+	}));
+}
+
+const { series } = Astro.props;
+const posts = (await getCollection('blog'))
+	.filter((p) => p.data.series === series.id)
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${series.title} — ${SITE_TITLE}`} description={series.description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="series-title">
+				<h1>{series.title}</h1>
+				<p>{series.description}</p>
+			</div>
+			<ul class="post-list">
+				{
+					posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+							<span class="date">
+								{post.data.pubDate.toLocaleDateString('en-US', { month: 'short' })}{' '}
+								{post.data.pubDate.getFullYear()}
+							</span>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.series-title {
+		margin: 1em 0 3em 0;
+	}
+	.series-title p {
+		margin-top: 1em;
+	}
+	.post-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.post-list li {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75em;
+		align-items: baseline;
+		margin-bottom: 1.6em;
+	}
+	.post-list a {
+		font-family: var(--font-syne), 'Syne', sans-serif;
+		font-size: 1.45rem;
+		letter-spacing: -0.02em;
+		color: var(--navy);
+		text-decoration: none;
+		line-height: 1.17;
+	}
+	.post-list a:hover {
+		text-decoration: underline;
+		opacity: 1;
+	}
+	.post-list .date {
+		font-size: 1rem;
+	}
+</style>
