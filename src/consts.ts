@@ -10,7 +10,8 @@ export const SERIES = [
 	{
 		id: 'agi-qa',
 		title: 'Simulated Q&A on AGI',
-		description: '',
+		description:
+			'Real questions from me; answers reconstructed from each thinker’s published positions and primary sources — not written by them.',
 	},
 	{
 		id: 'lair',
