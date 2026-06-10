@@ -11,7 +11,7 @@ export const SERIES = [
 		id: 'agi-qa',
 		title: 'Simulated Q&A on AGI',
 		description:
-			'Real questions from me; answers reconstructed from each thinker’s published positions and primary sources — not written by them.',
+			'I ask real questions and reconstruct each answer from the thinker’s published positions and primary sources.',
 	},
 	{
 		id: 'lair',
