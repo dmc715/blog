@@ -8,8 +8,6 @@ location: 'Mountain View, California, United States'
 
 *Exploring experiential learning, the “Era of Experience,” and the foundations of reinforcement learning*
 
-*Note on method: The questions are posed by me. The answers, compiled with AI assistance, are not authored by Richard Sutton; they are grounded in his documented positions and primary sources, with each answer citing the source it draws on. Quotation marks denote verbatim passages; everything else is paraphrase or analysis, flagged where it extrapolates beyond what Sutton states directly.*
-
 *Primary sources referenced: Silver & Sutton, “Welcome to the Era of Experience” (2025); Sutton & Barto, “Reinforcement Learning: An Introduction” (2nd ed., 2018); “The Alberta Plan for AI Research” (2022); “Beyond Reward” (2011); the Dwarkesh Patel interview; and Sutton’s talk slides (incompleteideas.net).*
 
 ## Q1: If an agent’s only access to the world is the Internet — a corpus composed entirely of human input — how can it learn experientially?
