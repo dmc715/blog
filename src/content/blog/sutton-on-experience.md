@@ -8,7 +8,7 @@ location: 'Mountain View, California, United States'
 
 *Exploring experiential learning, the “Era of Experience,” and the foundations of reinforcement learning*
 
-*The researchers: Richard Sutton is a professor of computing science at the University of Alberta and one of the founders of modern reinforcement learning (RL); he pioneered temporal-difference learning, co-authored the field’s foundational textbook, “Reinforcement Learning: An Introduction,” and received the 2024 Turing Award with Andrew Barto. Also appearing: David Silver, who leads RL research at Google DeepMind, led the AlphaGo and AlphaZero teams, and co-authored “Welcome to the Era of Experience” with Sutton; and Andrew Barto, professor emeritus at the University of Massachusetts Amherst (UMass Amherst) and the textbook’s other author.*
+*The researchers: Richard Sutton is a professor of computing science at the University of Alberta and one of the founders of modern reinforcement learning (RL); he pioneered temporal-difference (TD) learning, co-authored the field’s foundational textbook, “Reinforcement Learning: An Introduction,” and received the 2024 Turing Award with Andrew Barto. Also appearing: David Silver, who leads RL research at Google DeepMind, led the AlphaGo and AlphaZero teams, and co-authored “Welcome to the Era of Experience” with Sutton; and Andrew Barto, professor emeritus at the University of Massachusetts Amherst (UMass Amherst) and the textbook’s other author.*
 
 *Primary sources referenced: Silver & Sutton, “Welcome to the Era of Experience” (2025); Sutton & Barto, “Reinforcement Learning: An Introduction” (2nd ed., 2018); “The Alberta Plan for AI Research” (2022); “Beyond Reward” (2011); the Dwarkesh Patel interview; and Sutton’s talk slides (incompleteideas.net).*
 
@@ -24,7 +24,7 @@ Supervised learning on the corpus has no experience in it — **“supervised le
 ## Q2: How does Sutton reconcile grounded rewards with humans being part of the agent’s environment?
 The Rewards section draws the boundary not at human vs. non-human, but at **prejudgement vs. measured consequence.**
 
-**The disallowed case (RLHF-style):**
+**The disallowed case (reinforcement learning from human feedback, RLHF-style):**
 
 > *“Human-centric LLMs typically optimise for rewards based on human prejudgement: an expert observes the agent’s action and decides whether it is a good action… The fact that these rewards or preferences are determined by humans in absence of their consequences, rather than measuring the effect of those actions on the environment, means that they are not directly grounded in the reality of the world.”*
 
@@ -93,7 +93,7 @@ The return G_t = R_{t+1} + γR_{t+2} + γ²R_{t+3} + … is the actual future st
 
 **Relation to consequence-attribution:**
 
-A consequence in an experiential stream is usually delayed and diffuse — an action now pays off (or costs) many steps later. The value function folds that long, diffuse future back into a single present scalar, so the agent can make a local decision (pick the highest-value action) that is nonetheless correct about long-run consequences. This is why the Era of Experience paper singles out “value functions and methods to estimate them from long streams with as yet incomplete sequences” as core unsolved work, and why Sutton treats learning to predict (temporal-difference learning, his 1988 contribution) as the engine.
+A consequence in an experiential stream is usually delayed and diffuse — an action now pays off (or costs) many steps later. The value function folds that long, diffuse future back into a single present scalar, so the agent can make a local decision (pick the highest-value action) that is nonetheless correct about long-run consequences. This is why the Era of Experience paper singles out “value functions and methods to estimate them from long streams with as yet incomplete sequences” as core unsolved work, and why Sutton treats learning to predict (TD learning, his 1988 contribution) as the engine.
 
 <p class="source">Source: Sutton & Barto, “Reinforcement Learning: An Introduction” (2nd ed., 2018) — Ch. 1 (reward-vs-value passages, verbatim/near-verbatim) and Ch. 3 §3.5–3.6 (formal vπ, qπ, return). The tie to “long streams / incomplete sequences” is verbatim from Silver & Sutton, “Era of Experience.”</p>
 
