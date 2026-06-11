@@ -8,7 +8,7 @@ location: 'Mountain View, California, United States'
 
 *Exploring experiential learning, the “Era of Experience,” and the foundations of reinforcement learning*
 
-*The researchers: Richard Sutton is a professor of computing science at the University of Alberta and one of the founders of modern reinforcement learning; he pioneered temporal-difference learning, co-authored the field’s foundational textbook, and received the 2024 Turing Award with Andrew Barto. Also appearing: David Silver, who leads reinforcement-learning research at Google DeepMind, led the AlphaGo and AlphaZero teams, and co-authored “Welcome to the Era of Experience” with Sutton; and Andrew Barto, professor emeritus at the University of Massachusetts Amherst (UMass Amherst) and co-author of the textbook.*
+*The researchers: Richard Sutton is a professor of computing science at the University of Alberta and one of the founders of modern reinforcement learning; he pioneered temporal-difference learning, co-authored the field’s foundational textbook, “Reinforcement Learning: An Introduction,” and received the 2024 Turing Award with Andrew Barto. Also appearing: David Silver, who leads reinforcement-learning research at Google DeepMind, led the AlphaGo and AlphaZero teams, and co-authored “Welcome to the Era of Experience” with Sutton; and Andrew Barto, professor emeritus at the University of Massachusetts Amherst (UMass Amherst) and the textbook’s other author.*
 
 *Primary sources referenced: Silver & Sutton, “Welcome to the Era of Experience” (2025); Sutton & Barto, “Reinforcement Learning: An Introduction” (2nd ed., 2018); “The Alberta Plan for AI Research” (2022); “Beyond Reward” (2011); the Dwarkesh Patel interview; and Sutton’s talk slides (incompleteideas.net).*
 
