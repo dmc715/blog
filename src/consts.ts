@@ -10,7 +10,7 @@ export const SERIES = [
 		id: 'agi-qa',
 		title: 'Simulated Q&A on AGI',
 		description:
-			'The questions are posed by me, and the answers are reconstructed with AI assistance from each thinker’s published positions and primary sources — never authored by the thinkers themselves.',
+			'The questions are posed by me, and the answers are reconstructed with AI assistance from each researcher’s published positions and primary sources — never authored by the researchers themselves.',
 	},
 	{
 		id: 'lair',
