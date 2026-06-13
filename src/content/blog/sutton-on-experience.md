@@ -156,6 +156,8 @@ Deterministic is the special case where the distribution puts probability 1 on o
 
 In Sutton’s element-list: reward = the goal signal (given), value = prediction of long-run reward (estimated), policy = the behavior rule being optimized, and model (when present) = the agent’s model of the environment.
 
+<p class="paraphrase"><strong>Paraphrase:</strong> The division of labor in this setup: the researcher decides the question, the agent decides the answer. Human-decided — the reward function (what counts as good), the environment and action space (where the agent acts and with what), the discount rate (how far ahead it should care), and the learning rule itself. Out of human control once training runs — the value estimates the agent builds, the policy it converges to, and therefore the behavior. We specify what success is; how it gets achieved is discovered, and "given" in Sutton’s element-list means exactly this: given by us. Q9’s design principles push even more of the human-decided column into the discovered column.</p>
+
 ## Q7: Can networks perceive time? Is time built into how a network understands the world, or just memorized from human descriptions of how long things take?
 Sutton’s framework agrees with the intuition for today’s networks — but sharpens why, and locates the failure in the training setup rather than in networks as such.
 
