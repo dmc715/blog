@@ -20,7 +20,7 @@ location: 'Mountain View, California, United States'
 
 *Also appearing: Stuart Russell (University of California, Berkeley; author of "Human Compatible"), quoted on enfeeblement; and Max Tegmark (Massachusetts Institute of Technology (MIT); author of "Life 3.0"), cited on the "Reversion" scenario.*
 
-*Primary sources referenced: Barto, "Intrinsic Motivation and Reinforcement Learning" (2013); Singh, Barto & Chentanez, "Intrinsically Motivated Reinforcement Learning" (2004); Stanley & Lehman, "Why Greatness Cannot Be Planned: The Myth of the Objective" (2015); Russell, "Human Compatible" (Viking, 2019); Tegmark, "Life 3.0: Being Human in the Age of Artificial Intelligence" (2017); Stanley, the Jim Rutt Show (ep. 130, 2021).*
+*A note on sources: every quotation and number in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own arithmetic or synthesis. The answers extrapolate from those primary sources; the thinkers have not themselves made these claims.*
 
 ## Q1: Does using AI promote or demote our intrinsic curiosity?
 

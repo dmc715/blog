@@ -14,7 +14,7 @@ location: 'Mountain View, California, United States'
 
 *Also appearing: David Silver, who leads RL research at Google DeepMind, led the AlphaGo and AlphaZero teams, and co-authored “Welcome to the Era of Experience” with Sutton; and Andrew Barto, professor emeritus at the University of Massachusetts Amherst (UMass Amherst) and the textbook’s other author.*
 
-*Primary sources referenced: Silver & Sutton, “Welcome to the Era of Experience” (2025); Sutton & Barto, “Reinforcement Learning: An Introduction” (2nd ed., 2018); “The Alberta Plan for AI Research” (2022); “Beyond Reward” (2011); the Dwarkesh Patel interview; and Sutton’s talk slides (incompleteideas.net).*
+*A note on sources: every quotation and number in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own arithmetic or synthesis. The answers extrapolate from those primary sources; the thinkers have not themselves made these claims.*
 
 ## Q1: If an agent’s only access to the world is the Internet — a corpus composed entirely of human input — how can it learn experientially?
 The premise — “the agent’s access to the world is the Internet, which is only human input” — is the picture Sutton tells the field to abandon. A static corpus is not access to the world; it is access to a recording of other people talking about the world. Treating that corpus as the agent’s environment is what he calls the era of human data, which he argues is hitting a ceiling: **“the pace of progress driven solely by supervised learning from human data is demonstrably slowing.”** Imitating that text reaches competence, but “this approach in isolation has not and likely cannot achieve superhuman intelligence.”

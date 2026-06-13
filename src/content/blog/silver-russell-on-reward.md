@@ -16,7 +16,7 @@ location: 'Mountain View, California, United States'
 
 *Also appearing: Richard Sutton and Andrew Barto, authors of the foundational RL textbook and 2024 Turing Award laureates; Dylan Hadfield-Menell, Russell's former doctoral student, now a professor at MIT and lead author of the assistance-game papers cited below; and Ilya Sutskever, co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence.*
 
-*Primary sources referenced: Silver, Singh, Precup & Sutton, "Reward is Enough," Artificial Intelligence 299 (2021); Silver & Sutton, "Welcome to the Era of Experience" (2025); Sutton & Barto, "Reinforcement Learning: An Introduction" (2nd ed., 2018); "Is Human Data Enough?," Google DeepMind: The Podcast (2025); Russell, "Human Compatible" (Viking, 2019); Russell's BBC Reith Lectures 1 and 4 (2021); Hadfield-Menell, Dragan, Abbeel & Russell, "Cooperative Inverse Reinforcement Learning" (NeurIPS 2016); Hadfield-Menell et al., "Inverse Reward Design" (NeurIPS 2017) and "The Off-Switch Game" (IJCAI 2017); Ilya Sutskever's interview with Dwarkesh Patel (2025).*
+*A note on sources: every quotation and number in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own arithmetic or synthesis. The answers extrapolate from those primary sources; the thinkers have not themselves made these claims.*
 
 ## Q1: Does the hedonist philosophy framework (maximize pleasure, minimize pain) guide the design principles for the reward function?
 
