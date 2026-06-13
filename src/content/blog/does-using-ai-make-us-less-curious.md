@@ -42,7 +42,7 @@ A researcher of the same standing named the same worry. Stuart Russell, writing 
 
 Both camps reach one diagnosis from opposite premises. The school that places curiosity inside the reward framework and the school that abandons objectives agree that using machines to resolve our uncertainty and complete our objectives tends to demote intrinsic curiosity, and lifts it only when the machine is turned deliberately toward widening the search rather than closing it.
 
-<p class="paraphrase"><strong>Paraphrase:</strong> Demotes curiosity – from both camps. Barto and Singh's theory is that curiosity is the intrinsic drive to understand how the world works – aka building one's own world model. If more and more answers to questions prompted by human's innate curiosity are fetched rather than formed, the process of formation – which is learning – is skipped entirely. It is what is learned in the process that is transferrable (a crucial building block of general intelligence).</p>
+<p class="paraphrase"><strong>Paraphrase:</strong> Demotes curiosity – from both camps. Barto and Singh's theory is that curiosity is the intrinsic drive to understand how the world works – aka building one's own world model. If more and more answers to questions prompted by human's innate curiosity are fetched rather than formed, the process of formation – which is learning – is skipped entirely. And it is what is learned in the process that transfers – the building blocks of general intelligence. The crux: if that is so, then the more we offload formation to AI, the less intelligent we ourselves become.</p>
 
 ## Q2: Can a network that intrinsically rewards novelty reach general superintelligence faster than one given an explicit objective?
 
