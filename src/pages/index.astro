@@ -224,7 +224,11 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 		transform: translateY(-0.08em) rotate(90deg);
 	}
 	.archive-body {
-		margin-top: 1.8em;
+		margin-top: 1.6em;
+	}
+	.archive-body .series-description {
+		margin: 0 0 2.2em 0;
+		color: var(--muted);
 	}
 	.archived-item h5 {
 		margin: 0 0 0.8em 0;
