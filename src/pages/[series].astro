@@ -27,7 +27,10 @@ const posts = (await getCollection('blog'))
 		<Header />
 		<main>
 			<div class="series-title">
-				<h1>{series.title}</h1>
+				<h1>
+					{series.title}
+					{series.archived && <span class="archived-badge">Archived</span>}
+				</h1>
 				{series.description && <p>{series.description}</p>}
 			</div>
 			<ul class="post-list">
@@ -53,6 +56,20 @@ const posts = (await getCollection('blog'))
 	}
 	.series-title p {
 		margin-top: 1em;
+	}
+	.archived-badge {
+		display: inline-block;
+		margin-left: 0.6em;
+		padding: 0.2em 0.6em;
+		border: 1px solid rgba(37, 53, 81, 0.35);
+		border-radius: 999px;
+		font-family: var(--font-pt-serif), 'PT Serif', serif;
+		font-size: 0.85rem;
+		font-weight: 400;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		vertical-align: middle;
+		color: var(--muted);
 	}
 	.post-list {
 		list-style: none;
