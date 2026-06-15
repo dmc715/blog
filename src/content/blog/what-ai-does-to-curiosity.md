@@ -6,7 +6,7 @@ series: 'agi-qa'
 location: 'Mountain View, California, United States'
 ---
 
-*Not whether AI makes us more or less curious, but what it does to the loop by which curiosity turns a knowledge gap into understanding.*
+*Where AI intervenes in the loop that turns a knowledge gap into understanding — and which kind of AI dulls it versus sharpens it.*
 
 *The researchers:*
 
@@ -38,13 +38,13 @@ Mid-twentieth-century psychology turned the appetite into a mechanism. Robert Wh
 
 George Loewenstein's information-gap theory is the sharpest statement of the mechanism, and the one the rest of this post leans on. Curiosity, in his account, is **"a form of cognitively induced deprivation that arises from the perception of a gap in knowledge or understanding."** The gap has a precise shape: **"an information gap can be defined by two quantities: what one knows and what one wants to know."** Two consequences follow that matter later. First, curiosity behaves like a drive — Kidd and Hayden gloss it as functioning "like other drive states, such as hunger" — so it can be satisfied, and over-satisfied. Second, it is self-limiting: a little information is "a priming dose that greatly increases curiosity," but once enough is consumed, "satiation occurs."
 
-That places curiosity squarely in the category Ryan and Deci call intrinsic motivation — **"doing something because it is inherently interesting or enjoyable"** — as against extrinsic motivation, "doing something because it leads to a separable outcome." Curiosity is the appetite that is its own reward.
+That places curiosity squarely in the category Ryan and Deci call intrinsic motivation — **"doing something because it is inherently interesting or enjoyable"** — as against extrinsic motivation, "doing something because it leads to a separable outcome."
 
 **Neuroscience — the gap runs on the reward system.**
 
 The honest starting point, from Kidd and Hayden's review, is that **"curiosity is a basic element of our cognition, but its biological function, mechanisms, and neural underpinning remain poorly understood."** But one finding is robust and is the hinge for everything below: the brain treats closing a knowledge gap the way it treats any reward. In their words, **"although curiosity reflects intrinsic motivation, it is mediated by the same mechanisms as extrinsically motivated reward."**
 
-What those mechanisms compute is prediction error. The canonical result — Schultz, Dayan and Montague — is that dopamine neurons emit a signal **"whose fluctuating output apparently signals changes or errors in the predictions of future salient and rewarding events."** Curiosity, then, is not a vague yearning; it is the reward system registering a gap between what was predicted and what arrived, and rewarding the act of closing it.
+What those mechanisms compute is prediction error. The canonical result — Schultz, Dayan and Montague — is that dopamine neurons emit a signal **"whose fluctuating output apparently signals changes or errors in the predictions of future salient and rewarding events."** Curiosity, then, is the reward system registering a gap between what was predicted and what arrived, and rewarding the act of closing it.
 
 **The machine-learning analogy — the same loop, built deliberately.**
 
@@ -70,7 +70,7 @@ Lay the loop out as steps and the question becomes precise — *which step does 
 | 4. Formation | understanding is built *in the act of resolving* | yours — or skipped |
 | 5. Satiation | the signal cancels; attention moves on | yours |
 
-The default insertion point is step 3. When an AI answers the moment a question is asked, it closes the gap from the outside — before the prediction error of step 2 has done its work, and in place of the forming in step 4. The resolution arrives, but the understanding that the resolving would have built does not, because the world-model is delivered pre-packaged rather than constructed. On Barto and Singh's account this is decisive: the reusable competence is what accrues *in the closing* — "the skills making up general competence act as the 'building blocks' out of which an agent can form solutions to new problems." Hand over the closing and the building blocks are never laid.
+The default insertion point is step 3. When an AI answers the moment a question is asked, it closes the gap from the outside — before the prediction error of step 2 has done its work, and in place of the forming in step 4. The resolution arrives, but the understanding that the resolving would have built does not, because the world-model is delivered pre-packaged rather than constructed. On Barto and Singh's account this is decisive: the reusable competence is what accrues *in the closing* — "the skills making up general competence act as the 'building blocks' out of which an agent can form solutions to new problems."
 
 But step 3 is not the only place AI can act. It can also act at step 1 — *widening* the loop by opening gaps you would not have found. This is the distinction Stanley and Lehman draw between two postures: the answer-server that delivers the single best response to the stated question, and the "treasure hunter, liberated to survey the stepping stones and choose the most interesting." Their empirical result is that ignoring the stated objective and chasing novelty can reach goals the direct search cannot — "novelty search significantly outperforms objective-based search, suggesting the strange conclusion that some problems are best solved by methods that ignore the objective." An AI used to surface the adjacent, unasked question is operating at step 1; an AI used to vend the answer is operating at step 3.
 
@@ -121,7 +121,7 @@ One caution the framework forces on us: **the difference is easy to feel and har
 
 The endpoint of getting this wrong has a name. Stuart Russell calls it enfeeblement: once machines "can run our civilization for us… we would become passengers in a cruise ship run by machines… exactly as envisaged in the film WALL-E." That is the demoting case taken to its limit — a species that has outsourced every step of the loop and kept none of the forming.
 
-So the kind of AGI that demotes curiosity is the one built and used to *close* the search around the stated objective; the kind that promotes it is built and used to *widen* the search beyond what was asked — to open gaps and leave the closing to us. The architecture sets the odds; the use decides the result. The decision it drives, for anyone building or choosing these tools: optimize for leaving the user a gap worth closing, not for closing it fastest.
+So the kind of AGI that demotes curiosity is the one built and used to *close* the search around the stated objective; the kind that promotes it is built and used to *widen* the search beyond what was asked — to open gaps and leave the closing to us. The decision it drives, for anyone building or choosing these tools: optimize for leaving the user a gap worth closing, not for closing it fastest.
 
 ## Sources
 
