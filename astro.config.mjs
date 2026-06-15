@@ -7,6 +7,9 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://chengxueer.com',
+	redirects: {
+		'/blog/does-using-ai-make-us-less-curious': '/blog/what-ai-does-to-curiosity',
+	},
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
