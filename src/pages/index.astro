@@ -73,29 +73,34 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 			{
 				archivedSections.length > 0 && (
 					<section class="lane archived">
-						<div class="series-heading">
-							<h4>Archived Projects</h4>
-							<p class="series-description">Earlier work, kept for the record.</p>
-						</div>
-						<div class="archived-series">
-							{archivedSections.map((series) => (
-								<div class="archived-item">
-									<h5>
-										<a href={`/${series.id}/`}>{series.title}</a>
-									</h5>
-									<ul class="post-list">
-										{series.posts.map((post) => (
-											<li>
-												<a href={`/blog/${post.id}/`}>{post.data.title}</a>
-												<span class="date">
-													{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
-												</span>
-											</li>
-										))}
-									</ul>
+						<details class="archive">
+							<summary>
+								<span class="archive-caret" aria-hidden="true" />
+								<span class="archive-title">Archived Projects</span>
+							</summary>
+							<div class="archive-body">
+								<p class="series-description">Earlier work, kept for the record.</p>
+								<div class="archived-series">
+									{archivedSections.map((series) => (
+										<div class="archived-item">
+											<h5>
+												<a href={`/${series.id}/`}>{series.title}</a>
+											</h5>
+											<ul class="post-list">
+												{series.posts.map((post) => (
+													<li>
+														<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+														<span class="date">
+															{post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
+														</span>
+													</li>
+												))}
+											</ul>
+										</div>
+									))}
 								</div>
-							))}
-						</div>
+							</div>
+						</details>
 					</section>
 				)
 			}
@@ -181,18 +186,50 @@ const unsorted = posts.filter((p) => !SERIES.some((s) => s.id === p.data.series)
 		font-size: 1rem;
 	}
 	.lane.archived {
+		display: block;
 		border-top: 1px solid rgba(37, 53, 81, 0.18);
 		padding-top: 3em;
 	}
-	.lane.archived h4 {
+	.archive summary {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.55em;
+		cursor: pointer;
+		list-style: none;
+		user-select: none;
+	}
+	.archive summary::-webkit-details-marker {
+		display: none;
+	}
+	.archive-title {
+		font-family: var(--font-syne), 'Syne', sans-serif;
+		font-size: 1.45rem;
+		letter-spacing: -0.02em;
+		line-height: 1.15;
 		color: var(--muted);
 	}
+	.archive summary:hover .archive-title {
+		text-decoration: underline;
+	}
+	.archive-caret {
+		width: 0;
+		height: 0;
+		border-left: 0.42em solid var(--muted);
+		border-top: 0.3em solid transparent;
+		border-bottom: 0.3em solid transparent;
+		transform: translateY(-0.08em);
+		transition: transform 0.15s ease;
+	}
+	.archive[open] .archive-caret {
+		transform: translateY(-0.08em) rotate(90deg);
+	}
+	.archive-body {
+		margin-top: 1.8em;
+	}
 	.archived-item h5 {
-		margin: 0 0 1.2em 0;
-		font-size: 1rem;
-		font-weight: 600;
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
+		margin: 0 0 0.8em 0;
+		font-size: 1.45rem;
+		letter-spacing: -0.02em;
 		color: var(--muted);
 	}
 	.archived-item h5 a {
