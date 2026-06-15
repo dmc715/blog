@@ -22,3 +22,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# obsidian vault config (keep local, not part of published site)
+.obsidian/
+
+# research workspace — raw sources, PDFs, transcripts, drafts
+research/
+notes/
+
+# concept map — Obsidian linking layer over the posts (not part of the site)
+map/
