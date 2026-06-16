@@ -9,6 +9,7 @@ export default defineConfig({
 	site: 'https://chengxueer.com',
 	redirects: {
 		'/blog/does-using-ai-make-us-less-curious': '/blog/what-ai-does-to-curiosity',
+		'/blog/sutton-on-experience': '/blog/why-human-data-wont-reach-agi',
 	},
 	integrations: [mdx(), sitemap()],
 	fonts: [
