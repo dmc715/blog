@@ -69,7 +69,7 @@ Human data was scaled about as hard as it can be; the returns are slowing and th
 <text x="501.7" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2023</text>
 <text x="588" y="270" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2024</text>
 </svg>
-<figcaption>Figure 1. Tokens in each model's training set, on a logarithmic scale — about a 10,000-fold rise (four orders of magnitude) in roughly six years. Values rounded, from Epoch AI's "Notable AI Models" dataset.</figcaption>
+<figcaption>Figure 1. Tokens in each model's training set, on a logarithmic scale — about a 10,000-fold rise (four orders of magnitude) in roughly six years. Recent points are open-weight models; closed frontier labs (Anthropic, OpenAI, Google) do not disclose training-data size, so Claude, GPT-4, and Gemini cannot be plotted. Source: Epoch AI, "Notable AI Models" dataset (accessed June 2026); values rounded.</figcaption>
 </figure>
 
 *Figure 2. The data wall: demand against a finite stock.*
@@ -80,6 +80,8 @@ Human data was scaled about as hard as it can be; the returns are slowing and th
 | Projected year stock is exhausted | 2026–2032 |
 | Dataset-size growth, LLM era | 3.7× per year (≈6-month doubling) |
 | Frontier-compute growth, 2010–2024 | 5.3× per year |
+
+*Source: Epoch AI ("Notable AI Models"; dataset-size and compute trends) and Villalobos et al., "Will we run out of data? Limits of LLM scaling based on human-generated data" (Epoch AI / ICML 2024).*
 
 **Can synthetic data extend the supply?**
 
