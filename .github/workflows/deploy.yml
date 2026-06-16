@@ -15,6 +15,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Prose check (changed posts)
+        run: |
+          base="${{ github.event.before }}"
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then base="HEAD~1"; fi
+          files=$(git diff --name-only "$base" "${{ github.sha }}" -- 'src/content/blog/*.md' 2>/dev/null || true)
+          if [ -z "$files" ]; then echo "no posts changed; skipping"; exit 0; fi
+          echo "checking changed posts:"; echo "$files"
+          set +e; bash scripts/prose-check.sh $files; rc=$?; set -e
+          if [ "$rc" = "2" ]; then echo "::error::prose-check: tilde or bare decimal in a changed post"; exit 1; fi
+          if [ "$rc" = "1" ]; then echo "::warning::prose-check: filler scaffold in a changed post (advisory)"; fi
+          exit 0
       - uses: withastro/action@v6
         with:
           node-version: 22

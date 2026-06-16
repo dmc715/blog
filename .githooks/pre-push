@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Tracked git pre-push hook (enabled via: git config core.hooksPath .githooks).
+# Runs scripts/prose-check.sh on the agi-qa blog posts changed in the push range
+# and blocks the push if any trip it. Conscious override:  git push --no-verify
+#
+# Only checks posts changed in the push range, so untouched older posts don't block.
+set -u
+root="$(git rev-parse --show-toplevel)"
+checker="$root/scripts/prose-check.sh"
+[ -x "$checker" ] || { echo "pre-push: $checker missing/not executable — skipping prose-check"; exit 0; }
+
+ZERO="0000000000000000000000000000000000000000"
+files=""
+while read -r localref localsha remoteref remotesha; do
+  [ "$localsha" = "$ZERO" ] && continue                       # branch deletion
+  if [ "$remotesha" = "$ZERO" ]; then
+    base="$(git merge-base origin/main "$localsha" 2>/dev/null || true)"
+  else
+    base="$remotesha"
+  fi
+  if [ -n "$base" ]; then
+    f="$(git diff --name-only "$base" "$localsha" -- 'src/content/blog/*.md' 2>/dev/null || true)"
+  else
+    f="$(git diff --name-only "$localsha" -- 'src/content/blog/*.md' 2>/dev/null || true)"
+  fi
+  files="$files"$'\n'"$f"
+done
+
+files="$(printf '%s\n' "$files" | sed '/^$/d' | sort -u)"
+[ -z "$files" ] && exit 0
+
+paths=""
+while IFS= read -r rel; do [ -f "$root/$rel" ] && paths="$paths $root/$rel"; done <<EOF
+$files
+EOF
+[ -z "$paths" ] && exit 0
+
+echo "pre-push: prose-check on changed posts…"
+bash "$checker" $paths
+rc=$?
+if [ "$rc" -ne 0 ]; then
+  echo ""
+  echo "✗ pre-push BLOCKED by prose-check (exit $rc: 2=tilde/decimal, 1=filler)."
+  echo "  Fix the hits above (tilde→≈, add a leading 0, or rewrite the scaffold to open on substance),"
+  echo "  or override consciously with:  git push --no-verify"
+  exit 1
+fi
+echo "✓ prose-check clean"
+exit 0

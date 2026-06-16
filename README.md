@@ -54,6 +54,24 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## ✍️ Prose checks (agi-qa posts)
+
+`scripts/prose-check.sh` flags theme-breaking style bugs in blog posts: `~`
+(renders as a raised dot — use `≈`), bare decimals (write `0.3`, not `.3`), and
+rhetorical-filler scaffolds ("is not X; it is Y", "not X but Y", trailing
+", not Y"). It runs two ways:
+
+- **CI gate:** the deploy workflow runs it on the posts changed in each push and
+  fails the build on a tilde/bare-decimal hit (filler is an advisory warning).
+- **Local pre-push hook** (`.githooks/pre-push`): blocks a push whose changed
+  posts trip the checker. Enable it once per clone:
+
+  ```sh
+  git config core.hooksPath .githooks
+  ```
+
+  Override a block consciously with `git push --no-verify`.
+
 ## 👀 Want to learn more?
 
 Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
