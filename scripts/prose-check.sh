@@ -21,7 +21,7 @@ for f in "${files[@]}"; do
   t=$(grep -nE '~' "$f")                                          && [ -n "$t" ] && { out+=$'\n  -- tilde (use ≈):\n'"$t"; hard=1; }
   d=$(grep -nE '(^|[^0-9A-Za-z])\.[0-9]' "$f")                    && [ -n "$d" ] && { out+=$'\n  -- bare decimal (add leading 0):\n'"$d"; hard=1; }
   s=$(grep -nE ' is not [^.]*; it is| is not [^.]*\. It is| is not [^.]* but |, not [a-z]|— not |the opposite of|exception proves' "$f" \
-        | grep -v 'class="source"')                               && [ -n "$s" ] && { out+=$'\n  -- filler scaffold (advisory):\n'"$s"; soft=1; }
+        | grep -vE 'class="(source|fig-note)"')                   && [ -n "$s" ] && { out+=$'\n  -- filler scaffold (advisory):\n'"$s"; soft=1; }
   [ -n "$out" ] && { echo "### $f$out"; echo; }
 done
 [ $hard -eq 1 ] && exit 2

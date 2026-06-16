@@ -81,7 +81,7 @@ Human data was scaled about as hard as it can be; the returns are slowing and th
 | Dataset-size growth, LLM era | 3.7× per year (≈6-month doubling) |
 | Frontier-compute growth, 2010–2024 | 5.3× per year |
 
-*Source: Epoch AI ("Notable AI Models"; dataset-size and compute trends) and Villalobos et al., "Will we run out of data? Limits of LLM scaling based on human-generated data" (Epoch AI / ICML 2024).*
+<p class="fig-note">Source: Epoch AI (“Notable AI Models”; dataset-size and compute trends) and Villalobos et al., “Will we run out of data? Limits of LLM scaling based on human-generated data” (Epoch AI / ICML 2024).</p>
 
 **Can synthetic data extend the supply?**
 

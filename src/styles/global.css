@@ -182,7 +182,8 @@ figure.chart svg {
 	height: auto;
 }
 
-figure.chart figcaption {
+figure.chart figcaption,
+.fig-note {
 	font-size: 0.85em;
 	font-style: italic;
 	color: #5a5a56;
