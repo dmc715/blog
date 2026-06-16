@@ -36,16 +36,41 @@ It scaled enormously, and it is nearly spent. Training-dataset sizes climbed by 
 
 So the picture is the opposite of under-scaling. Human data was scaled about as hard as it can be, the returns are slowing, and the well is running dry. More of the same cannot be the path, because there is not much more of the same to be had.
 
-*Figure 1. Training-dataset size of notable language models, 2018–2024 (tokens).*
-
-| Model | Year | Training data |
-|---|---|---|
-| GPT-1 | 2018 | ~1.3 billion |
-| GPT-2 | 2019 | ~11 billion |
-| GPT-3 | 2020 | ~240 billion |
-| Chinchilla | 2022 | ~1.4 trillion |
-| Llama 2-70B | 2023 | ~2 trillion |
-| Llama 3.1-405B | 2024 | ~15.6 trillion |
+<figure class="chart">
+<p class="chart-title">Training-dataset size of notable language models, 2018–2024</p>
+<svg viewBox="0 0 600 285" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart on a logarithmic scale: training-dataset size rose from about 1.3 billion tokens for GPT-1 in 2018 to about 15.6 trillion tokens for Llama 3.1 in 2024, roughly four orders of magnitude in six years, tracing a near-straight line on the log scale.">
+<line x1="70" y1="63.6" x2="588" y2="63.6" stroke="#c9c9c3" stroke-width="1"/>
+<line x1="70" y1="110.7" x2="588" y2="110.7" stroke="#c9c9c3" stroke-width="1"/>
+<line x1="70" y1="157.8" x2="588" y2="157.8" stroke="#c9c9c3" stroke-width="1"/>
+<line x1="70" y1="204.9" x2="588" y2="204.9" stroke="#c9c9c3" stroke-width="1"/>
+<line x1="70" y1="252" x2="588" y2="252" stroke="#5a5a56" stroke-width="1"/>
+<text x="52" y="67.6" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">10T</text>
+<text x="52" y="114.7" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">1T</text>
+<text x="52" y="161.8" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">100B</text>
+<text x="52" y="208.9" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">10B</text>
+<text x="52" y="256" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">1B</text>
+<polyline points="70,246.6 156.3,203 242.7,139.9 415.3,103.8 501.7,96.5 588,54.5" fill="none" stroke="#253551" stroke-width="2"/>
+<circle cx="70" cy="246.6" r="4" fill="#253551"/>
+<circle cx="156.3" cy="203" r="4" fill="#253551"/>
+<circle cx="242.7" cy="139.9" r="4" fill="#253551"/>
+<circle cx="415.3" cy="103.8" r="4" fill="#253551"/>
+<circle cx="501.7" cy="96.5" r="4" fill="#253551"/>
+<circle cx="588" cy="54.5" r="4" fill="#253551"/>
+<text x="76" y="239" text-anchor="start" font-family="PT Serif, serif" font-size="12" fill="#253551">GPT-1 · 1.3B</text>
+<text x="156" y="194" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#253551">GPT-2 · 11B</text>
+<text x="243" y="131" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#253551">GPT-3 · 240B</text>
+<text x="415" y="95" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#253551">Chinchilla · 1.4T</text>
+<text x="501" y="114" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#253551">Llama 2 · 2T</text>
+<text x="586" y="46" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#253551">Llama 3.1 · 15.6T</text>
+<text x="70" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2018</text>
+<text x="156.3" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2019</text>
+<text x="242.7" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2020</text>
+<text x="415.3" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2022</text>
+<text x="501.7" y="270" text-anchor="middle" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2023</text>
+<text x="588" y="270" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">2024</text>
+</svg>
+<figcaption>Figure 1. Tokens in each model's training set, on a logarithmic scale — about a 10,000-fold rise (four orders of magnitude) in roughly six years. Values rounded, from Epoch AI's "Notable AI Models" dataset.</figcaption>
+</figure>
 
 *Figure 2. The data wall: demand against a finite stock.*
 
