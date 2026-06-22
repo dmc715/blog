@@ -1,5 +1,5 @@
 ---
-title: 'Why No Amount of Human Data Will Reach AGI'
+title: 'Why No Amount of Human Data Will Reach AGI?'
 description: 'Human training data scaled by four orders of magnitude in six years and is now running dry — and even so it cannot reach AGI. The reason is what experience captures that human data cannot, and why generating new, verifiable knowledge requires acting rather than reading.'
 pubDate: '2026-06-09'
 series: 'agi-qa'
