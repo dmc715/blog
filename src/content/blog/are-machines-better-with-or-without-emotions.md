@@ -1,0 +1,157 @@
+---
+title: 'Are Machines Better With or Without Emotions?'
+description: 'A stroke that removed a man’s emotions also removed his ability to decide. This traces the function of emotion in intelligence — emotion as a value function, and that value function as an evolution-installed prior — and asks what machines built without one are missing, and whether they should be.'
+pubDate: '2026-06-22'
+series: 'agi-qa'
+location: 'New York, New York, United States'
+---
+
+*A stroke that removed a man’s emotions also removed his ability to decide. The function of emotion in intelligence — emotion as a value function, that value function as an evolution-installed prior — and what machines built without one are missing, and whether they should be.*
+
+*The thinkers:*
+
+*Ilya Sutskever — co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence (SSI); on emotion as a value function, and on why a system that can reason but cannot rank its options is worse at making decisions.*
+
+*Also appearing:*
+
+*Antonio Damasio — neurologist whose patients, after damage to the emotion-related prefrontal cortex, kept their intelligence but lost the ability to decide; originator of the somatic marker hypothesis.*
+
+*Richard Sutton and Andrew Barto — founders of modern reinforcement learning (RL) and 2024 Turing Award laureates, on value functions and temporal-difference (TD) learning.*
+
+*Yann LeCun — chief AI scientist at Meta, on an immutable intrinsic cost as "the equivalent of emotions."*
+
+*Joost Broekens — on a reinforcement-learning theory of emotion.*
+
+*Satinder Singh — on where reward comes from (the optimal reward problem).*
+
+*Anthony Zador — on the genomic bottleneck as a compressed innate prior.*
+
+*A note on sources: every quotation and number in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own arithmetic or synthesis. The answers extrapolate from those primary sources; the thinkers have not themselves made these claims.*
+
+## Q1: Do emotions help or hurt judgment?
+
+The intuition is that a cool head decides better than a hot one — that emotion is noise in an otherwise rational process. The clearest evidence cuts the other way, and it is what happens when emotion is removed entirely.
+
+**Sutskever — the case he points to.** In a recent podcast, Sutskever recounts a case he had read about: a person whose brain injury removed not their intelligence but their feelings — the capacity for emotion was gone while reasoning stayed intact. The result was not a sharper, more rational decider. It was someone who became unable to make even trivial decisions, deliberating for hours over which socks to wear and making disastrous financial choices.
+
+His reading of the case is the claim the rest of this post builds on. What the injury removed, he suggests, was the signal that assigns worth to the options — "some kind of a value function thing," in his words, that tells you what any choice is ultimately worth. Reasoning can enumerate the options; without the ranking signal, nothing settles which one is better. He notes the same mechanism is conspicuously absent from today's systems: value functions, he observes, "don't play a very prominent role in the things people do" in machine learning right now.
+
+**Damasio — the same case, the careful version.** The case Sutskever paraphrases is the founding observation of Antonio Damasio's somatic marker hypothesis — most famously the patient Damasio called Elliot, who after a ventromedial-prefrontal-cortex tumor kept his intelligence, memory, and language intact but could no longer run his own life. The vivid image of such a patient spending half an hour weighing two appointment dates comes from a single anecdote in Damasio's book; the controlled studies show a different picture. In the lab the deficit looks less like paralysis and more like choosing badly: patients decide readily and at normal speed, yet their preferences come out inconsistent and value-non-maximizing, as Fellows and Farah and later Camille and colleagues found, and on the Iowa Gambling Task they keep drawing from the losing decks, insensitive to future losses, as Bechara and the Damasios showed. The faculty they have lost is one the healthy brain uses to score options on a common scale — Padoa-Schioppa and Assad found single orbitofrontal neurons encoding the worth of an option independently of the other choices on offer.
+
+The somatic marker hypothesis adds that part of this value signal is bodily — a fast, felt tag on options before deliberation. In the same gambling task, healthy players began producing anticipatory skin-conductance responses to the losing decks, and steered away from them, before they could consciously say which were bad.
+
+> The body registered the danger before the conscious mind could name it — the emotional signal arriving ahead of the reasoning.
+
+**The skeptical reading — when emotion helps and when it misleads.** It would be too clean to conclude that feelings are simply good for judgment. The strong form of the somatic marker hypothesis — that bodily feedback measurably *improves* decisions — is, in the verdict of its most thorough critical review, an elegant theory that "requires additional empirical support to remain tenable." Patients who cannot receive bodily feedback at all, from spinal-cord injury or pure autonomic failure, do not reliably show the decision deficits the theory predicts, and the broader interoception literature has not converged. The distinction the evidence does support is about *which* emotion. Affect that is *integral* to the decision — feeling about the choice in front of you — tends to help; affect that is *incidental* — a mood bleeding in from something unrelated — distorts it, and people systematically mistake the second for the first (Figure 1). The lesion case shows the cost of removing the value signal entirely; the misattribution literature shows the cost of acting on a value signal that is about the wrong thing.
+
+> An emotion improves a decision when it carries information about that decision, and corrupts it when it is a signal left over from somewhere else read as if it were.
+
+*Figure 1. The same faculty helps or hurts depending on whether the feeling is about the decision at hand.*
+
+| Regime | What happens to the value signal | Effect on the decision |
+| --- | --- | --- |
+| Emotion removed (vmPFC lesion) | nothing scores the options on a common scale | choices become inconsistent and value-non-maximizing |
+| Affect integral to the choice | the signal is about this decision | sharpens and speeds the choice |
+| Affect incidental (mood spillover) | a signal about something else, misread as relevant | biases the choice — the classic error |
+
+<p class="fig-note">Source: author's synthesis of Bechara et al. (1994), Fellows &amp; Farah (2007), and Camille et al. (2011) on the lesion phenotype, and Lerner et al. (2015) and Schwarz &amp; Clore (1983) on the integral/incidental distinction. Conceptual summary, not measured data.</p>
+
+## Q2: What is an emotion doing, computationally?
+
+Sutskever names the missing piece a "value function" but leaves it as an analogy. Pinning down what that means turns the analogy into a mechanism — and it is a mechanism that RL has had a precise definition of since the late 1980s.
+
+**The signal the patient lost.** Picture standing in a position in a game, or partway through a plan: there is a running estimate of how much total reward you should expect from here on, across the whole rest of the episode. That running estimate of expected future reward is what RL calls the **value function**. It is distinct from immediate reward — a move can feel bad now (sacrificing a piece) yet carry high value because of where it leads. Now consider the moment-to-moment *update* of that estimate: when the next instant turns out better than expected, the gap between the old estimate and the new one is a correction signal. That gap is the **temporal-difference (TD) error**, the prediction error; in the brain, dopamine neurons are widely read as encoding it.
+
+**Emotion as the read-out of these two signals.** On the RL account of emotion, the felt emotions map onto exactly these two quantities — and the split between them is precise. The *change* in value, the TD error itself, is joy when it is positive (the situation just got better than expected) and distress when negative; these are emotions about the now. The *level* of value, the standing estimate of what is still to come, is hope when high and fear when low, since both are about anticipated gain or loss. Joy and distress report the update; hope and fear report the forecast (Figure 2). Broekens and colleagues model exactly this — "learned state utility, V(s), models fear (negative) and hope (positive)," while "joy/distress is a signal similar to the error signal."
+
+This makes Sutskever's phrase precise. The "value function thing" the lesion patient lost was not a metaphor for feelings; the feelings *were* the conscious read-out of a value function and its time-derivative. Remove the read-out and you remove the only thing that tells deliberation which branch is worth taking — which is why the patient could compute the options but not prefer one.
+
+<figure class="chart">
+<p class="chart-title">Emotion as the read-out of a value estimate and its changes</p>
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A line traces a value estimate rising and falling over an episode. Where the value stands high it is labeled hope and where it stands low, fear — the level, an anticipation. Where it jumps up sharply it is labeled joy and where it drops sharply, distress — the change, a temporal-difference error.">
+<line x1="70" y1="40" x2="70" y2="255" stroke="#5a5a56" stroke-width="1"/>
+<line x1="70" y1="255" x2="565" y2="255" stroke="#5a5a56" stroke-width="1"/>
+<text x="62" y="52" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">higher</text>
+<text x="62" y="248" text-anchor="end" font-family="PT Serif, serif" font-size="12" fill="#5a5a56">lower</text>
+<text x="22" y="150" text-anchor="middle" font-family="PT Serif, serif" font-size="13" fill="#253551" transform="rotate(-90 22 150)">value estimate  V</text>
+<text x="317" y="280" text-anchor="middle" font-family="PT Serif, serif" font-size="13" fill="#253551">time through an episode →</text>
+<polyline points="70,175 150,112 210,106 255,108 268,68 305,72 322,74 345,175 405,210 470,214 530,192 565,186" fill="none" stroke="#253551" stroke-width="2.5"/>
+<text x="205" y="93" text-anchor="middle" font-family="PT Serif, serif" font-size="13" fill="#253551" font-style="italic">hope — value high</text>
+<text x="470" y="237" text-anchor="middle" font-family="PT Serif, serif" font-size="13" fill="#253551" font-style="italic">fear — value low</text>
+<circle cx="268" cy="68" r="3.5" fill="#253551"/>
+<text x="284" y="60" text-anchor="start" font-family="PT Serif, serif" font-size="13" fill="#253551" font-style="italic">joy — value jumps up</text>
+<circle cx="345" cy="175" r="3.5" fill="#253551"/>
+<text x="356" y="168" text-anchor="start" font-family="PT Serif, serif" font-size="13" fill="#253551" font-style="italic">distress — value drops</text>
+</svg>
+<figcaption>Figure 2. The line is the value estimate V over an episode. Its <em>level</em> is an anticipation — high is hope, low is fear; its <em>change</em> from one step to the next is the temporal-difference error — a sharp rise is joy, a sharp fall is distress. Source: author's schematic after Broekens, Jacobs &amp; Jonker (2015) and Moerland, Broekens &amp; Jonker (2018) — a schematic illustration rather than a data plot.</figcaption>
+</figure>
+
+## Q3: Where does the value function come from?
+
+A value function is learned — but learned against what? You can only estimate expected *reward* if something already defines what counts as reward. The question of emotion therefore pushes back one level: not "what is the value signal" but "who wrote the reward function the value signal is chasing." Sutskever gives the answer in passing — emotions, he says, are "relatively simple," even simple enough that "you could map them out in a human-understandable way," and they "evolved mostly from our mammal ancestors" and were "fine-tuned a little bit while we were hominids." That last sentence is a compressed statement of three converging research programs.
+
+**Layer 1 — the reward itself is designed.** Singh, Lewis and Barto's *optimal reward problem* makes the point formally: an agent's reward function is not given by the world, it is *chosen* — and evolution is the process that chose ours, selecting reward signals so that an animal optimizing them tends to survive and reproduce. Hunger, fear, and affection are not goals; they are reward terms tuned by selection because pursuing them paid off on fitness. The neuroscience asks the same question under almost the same title — Juechems and Summerfield's "Where Does Value Come From?" argues that subjective value is generated by internal, evolutionarily shaped objectives rather than read off the world.
+
+**Layer 2 — two timescales.** This is the meta-learning picture: a slow outer loop (evolution across generations) shapes a fast inner loop (learning within a lifetime), so that the inner learner starts from a useful place rather than from scratch — the structure RL² and "learning to reinforcement learn" formalize, and that Botvinick and colleagues map onto the brain. Evolution does not hand you your values from scratch; it hands you a prior — a head start on what matters and what is worth learning, so the goal is half-known before experience begins — and a lifetime of learning then converges fast instead of starting blind.
+
+**Layer 3 — why simple.** Zador's genomic bottleneck explains Sutskever's "relatively simple." The genome is far too small to specify a value function in detail, so what it can ship is a *compressed* prior — innate, low-dimensional, and for that reason robust across situations it was never trained on. That smallness is what makes the signal carry: a low-dimensional prior generalizes where a detailed one would have overfit the ancestral environment.
+
+**The explicit bridge.** LeCun draws the line to machines directly. In his architecture for autonomous machine intelligence, an *intrinsic cost* module — "immutable (not trainable)," hardwired to compute the agent's instantaneous "pain, pleasure, hunger" — sits beneath a *trainable critic* that learns to predict its future values. Such agents, he argues, "will inevitably possess the equivalent of emotions": machine emotions "will be the product of an intrinsic cost, or the anticipation of outcomes from a trainable critic." (LeCun grounds the intrinsic cost in the *designer* and an amygdala analogy rather than in evolution; reading it as the evolved prior is this post's own bridge, which he does not draw himself.)
+
+Put together: an emotion is an *evolution-installed prior on the value function* — a simple, hardwired, robust ranking signal you are born with rather than forced to learn from experience.
+
+## Q4: So — are machines better with or without emotions?
+
+The question dissolves once Q1–Q3 are in place, because "emotion" turns out to name two separable things: a *value function* (the ranking signal) and a *prior on that value function* (the part you are born with). The real questions are whether a machine has each — and, for a system meant to exceed human judgment, the sharper one: should a superintelligence be hardwired with a human-like prior at all, or is it better off without one?
+
+**The value-function layer: machines are growing one.** When Sutskever made his remark, value functions did not "play a very prominent role" in deployed systems — a model trained to imitate text has no running estimate of expected future reward. That has shifted, though less cleanly than a single trend. Models tuned with human feedback already carry a learned reward model and a critic that scores whole completions — a value signal in shipped systems since InstructGPT. More recently, some reasoning systems add *process reward models* (PRMs) that score the intermediate steps of a solution rather than only the final answer — a denser, value-like signal threaded through the reasoning itself (the "Let's Verify Step by Step" work, on which Sutskever is a co-author, and automatic-PRM lines such as Math-Shepherd). How well that denser signal works depends on how it is used (Figure 3). As a verifier that ranks candidate answers, and as the training signal at moderate model scale, the value model reliably beats outcome-only reward. But the gain does not survive to the frontier: under large-scale training the model learns to game the learned reward model — scoring well without actually getting better, a failure known as reward hacking — which is why DeepSeek-R1 dropped both process and outcome reward models and fell back on simple rule-based rewards. In the thin sense, though, the value-function layer Q2 describes is arriving — even where its richest form is, for now, being rolled back.
+
+*Figure 3. Whether a learned value signal beats outcome-only depends on how it is used — math-reasoning benchmarks, 2023–2025.*
+
+| Where the value signal is used | Compared against | Result |
+| --- | --- | --- |
+| Ranking candidate answers (verifier) | outcome-only reward model | process model wins — 78% vs 72% of MATH solved |
+| RL training signal, 7B model | outcome-reward RL | process-RL wins — 84.1 vs 81.8 on GSM8K |
+| RL training signal, 32B model | value-free RL (GRPO / DAPO) | value-based wins — 60.4 vs 47–50 on AIME 2024 |
+| RL training signal, frontier model | rule-based outcome reward | rule-based wins — the learned reward model gets gamed |
+
+<p class="fig-note">Source: Lightman et al., "Let's Verify Step by Step" (ICLR 2024); Wang et al., "Math-Shepherd" (ACL 2024); Yue et al., "VAPO" (2025); DeepSeek-AI, "DeepSeek-R1" (Nature, 2025). Best-of-N reranking and step-level RL on the MATH, GSM8K, and AIME 2024 benchmarks.</p>
+
+**The prior layer: machines do not have one.** What today's systems lack is Q3. Their values are learned end-to-end from human data and human feedback; there is no compressed, innate prior installed beneath the learning — no genomic bottleneck, no immutable intrinsic cost. Every value a model holds is downstream of its training distribution, which is exactly the condition the evolved prior exists to escape: a built-in ranking that still holds in situations the learner has never seen (Figure 4).
+
+**So the answer.** Not "with or without emotions" — *with or without a value function, and with or without a robust prior on it.* A pure reasoner with no value function is the Q1 lesion patient at scale: able to enumerate the options, unable to hold a reliable preference among them. A system with a value function learned only from data is prone to the Q1 failure of *incidental* affect, but worse — it will generalize a mis-ranked value confidently and off-distribution, with none of the broad robustness the evolved prior was selected to provide. What "building something emotion-like" into a machine means here is concrete: give the system a value signal, and make part of that signal a fixed, built-in prior — wired in by design, the way LeCun's intrinsic cost is — instead of learning all of it from data. That is what general intelligence needs. Whether a superintelligence should be given such a prior at all, and what it should contain, stays open; the human prior would be a poor thing to copy, since it was tuned for ancestral survival rather than for what a superhuman system will face.
+
+*Figure 4. Today's models have grown the value-function layer; what they lack is the evolved prior on it.*
+
+| Layer | In humans | In today's LLMs |
+| --- | --- | --- |
+| Value function — ranks options by expected future reward | evolved and learned; dopamine carries the prediction error | present — reward models, PPO critics, process reward models |
+| Prior on the value function — innate, compressed, robust off-distribution | present — the genomic bottleneck ships a simple, evolved prior | absent — values are learned entirely from training data |
+
+<p class="fig-note">Source: author's synthesis of Sutton &amp; Barto (2018) and Schultz et al. (1997) on value and prediction error; Zador (2019) and LeCun (2022) on the innate prior; Lightman et al. (2023) and Ouyang et al. (2022) on value signals in LLMs. Conceptual summary, not measured data.</p>
+
+## Q5: What does the machine teach us about awareness of our own emotional state?
+
+Reading emotion as a value function does not stay on the machine side; it hands back a usable account of what it means to be aware of your own feelings — and a procedure for it.
+
+> To be aware of an emotion is to read your own value signal — to ask not only *that* you feel something, but what reward the feeling is predicting, and whether that prediction is about the decision in front of you.
+
+If an emotion is the conscious read-out of a value estimate and its prediction error (Q2), then being aware of an emotional state means doing exactly that. And the single most useful thing the framing adds is the Q1 distinction. The signal does not come labeled. The misattribution literature shows that people routinely read *incidental* affect — a bad mood, a racing heart from the last meeting — as information about the decision in front of them, and decide worse for it. The evolved-prior story from Q3 explains why this is the default failure: a prior tuned for mammal and hominid environments is simple and robust precisely because it fires broadly, which means it also fires off-distribution, in modern situations it was never selected for.
+
+So the lesson the machine framing offers is neither "trust your gut" nor "override it." It is a provenance check. Treat a feeling as what it is — a value or prediction-error signal — and then ask the two questions the machine makes explicit: *what reward is this signal predicting,* and *is it about this decision, or a prior firing on the wrong context?* The lesion patient shows the cost of having no signal; the misattribution research shows the cost of obeying a signal whose source you never checked. Awareness is reading the signal *and* knowing where it came from.
+
+## Sources
+
+<p class="source">Q1 · Sutskever (this interview is the source for all Sutskever quotes in the post) — Source: Ilya Sutskever, interviewed by Dwarkesh Patel, November 2025 (cleaned transcript at dwarkesh.com/p/ilya-sutskever-2, verified against the raw auto-transcript). The brain-damage case is paraphrased rather than quoted; the paraphrase (emotional processing removed, intelligence intact, very bad at decisions, hours spent over which socks to wear, bad financial decisions) is faithful to the cleaned transcript. Quoted verbatim from Sutskever: "some kind of a value function thing" (Q1) and value functions "don't play a very prominent role in the things people do" (Q4). The framing phrase "what the end reward for any decision should be" is Dwarkesh Patel's line, not Sutskever's, so it is not quoted. The Q3 quotes — emotions are "relatively simple," "you could map them out in a human-understandable way," "evolved mostly from our mammal ancestors," "fine-tuned a little bit while we were hominids" — are from the same interview and verbatim per the cleaned transcript.</p>
+
+<p class="source">Q1 · Damasio / lesion phenotype — Source: Antonio Damasio, *Descartes’ Error: Emotion, Reason, and the Human Brain* (Putnam, 1994) for the somatic marker hypothesis, the patient "Elliot," and the half-hour appointment-deliberation scene — that scene is a single observational anecdote, and the deliberating patient is unnamed (popular retellings that pin it on "Elliot" conflate two cases). The controlled deficit is better characterized as inconsistent, value-non-maximizing choice at normal speed than as paralysis: Bechara, Damasio, Damasio & Anderson (1994), "Insensitivity to future consequences…," *Cognition* 50:7–15 (Iowa Gambling Task); Bechara, Damasio, Tranel & Damasio (1997), "Deciding advantageously before knowing the advantageous strategy," *Science* 275(5304):1293–1295 (anticipatory skin-conductance responses); Fellows & Farah (2007), "The role of ventromedial prefrontal cortex in decision making," *Cerebral Cortex* 17:2669–2674 (preference inconsistency); Camille, Griffiths, Vo, Fellows & Kable (2011), *J. Neuroscience* 31:7527–7532 (violations of value-maximization). Positive value-coding evidence: Padoa-Schioppa & Assad (2006), "Neurons in the orbitofrontal cortex encode economic value," *Nature* 441:223–226 (menu-invariant value coding). Qualification: Yu, Dana & Kable (2022), *Nature Communications* 13:4758, find these patients’ preferences noisy but still transitive — vmPFC is necessary for strong, reliable preferences, not for rationality as such. The somatic marker hypothesis itself is contested (see the Q1 skeptical-reading entry). Identification of Sutskever’s paraphrased case with Damasio’s patients is my inference, not a claim Sutskever made.</p>
+
+<p class="source">Q1 · The skeptical reading — Source: Dunn, Dalgleish & Lawrence (2006), "The somatic marker hypothesis: A critical evaluation," *Neuroscience & Biobehavioral Reviews* 30(2):239–271. The quoted phrase — an elegant theory that "requires additional empirical support to remain tenable" — is verbatim from the abstract; the earlier draft’s "elegant but under-supported" was a paraphrase and has been corrected. Null/limiting evidence: North & O’Carroll (2001), *Neuropsychologia* 39(5):521–524 (spinal-cord injury), and Heims et al. (2004), *Neuropsychologia* 42(14):1979–1988 (pure autonomic failure); Dunn et al. (2010), "Listening to Your Heart," *Psychological Science* 21(12):1835–1844 (interoception double-edged). Integral-vs-incidental distinction: Lerner, Li, Valdesolo & Kassam (2015), "Emotion and Decision Making," *Annual Review of Psychology* 66:799–823 (canonical review); the divergent integral/incidental effects are documented in Ferrer & Ellis (2021), *J. Behavioral Decision Making* 34(2):275–289 ("preliminary evidence … differential effects" — NOT a clean "integral > incidental in magnitude" finding; described accordingly). Broader theoretical anchors on affect in risky judgment: Loewenstein, Weber, Hsee & Welch (2001), "Risk as Feelings," *Psychological Bulletin* 127(2):267–286, and Lerner & Keltner (2001), appraisal-tendency framework, *JPSP* 81(1):146–159. The synthesis ("the answer depends on whether the affect is about the decision") is my own.</p>
+
+<p class="source">Q2 · Value function & TD error — Source: Sutton & Barto, *Reinforcement Learning: An Introduction* (2nd ed., 2018) for the value function, and Sutton (1988), "Learning to Predict by the Methods of Temporal Differences," *Machine Learning* 3:9–44, for TD learning/TD error; Schultz, Dayan & Montague (1997), "A Neural Substrate of Prediction and Reward," *Science* 275(5306):1593–1599 (dopamine as reward-prediction error). Definitions are paraphrased from these texts. Emotion mapping — primary anchor: Moerland, Broekens & Jonker (2018), "Emotion in Reinforcement Learning Agents and Robots: A Survey," *Machine Learning* 107:443–480 (peer-reviewed survey); concrete model and verbatim quotations ("learned state utility, V(s), models fear (negative) and hope (positive)"; "joy/distress is a signal similar to the error signal") from Broekens, Jacobs & Jonker (2015), "A Reinforcement Learning Model of Joy, Distress, Hope and Fear," *Connection Science* 27(3):215–233. (The broader all-emotion-as-TD-error preprint, Broekens 2018 arXiv:1807.08941, is labeled by its author "pre-print, don't cite verbatim" and is not relied on here.)</p>
+
+<p class="source">Q3 · Evolved prior — Source: Singh, Lewis & Barto (2009), "Where Do Rewards Come From?", CogSci 2009, and Singh, Lewis, Barto & Sorg (2010), "Intrinsically Motivated Reinforcement Learning: An Evolutionary Perspective," *IEEE Trans. Autonomous Mental Development* 2(2):70–82 (the optimal reward problem); the neuroscience parallel is Juechems & Summerfield (2019), "Where Does Value Come From?", *Trends in Cognitive Sciences* 23(10):836–850. Two-timescale meta-RL: Duan et al. (2016), "RL²" (arXiv:1611.02779), and Wang et al. (2016), "Learning to reinforcement learn" (arXiv:1611.05763), mapped to the brain by Botvinick et al. (2019), *Trends in Cognitive Sciences* 23(5):408–422. Genomic bottleneck: Zador (2019), "A Critique of Pure Learning and What Artificial Neural Networks Can Learn from Animal Brains," *Nature Communications* 10:3770. LeCun (2022), "A Path Towards Autonomous Machine Intelligence" v0.9.2 (OpenReview) — quotations verified verbatim against the PDF: the intrinsic cost is "immutable (not trainable)"; autonomous agents "will inevitably possess the equivalent of emotions," which "will be the product of an intrinsic cost, or the anticipation of outcomes from a trainable critic." NOTE: LeCun attributes the intrinsic cost’s immutability to the designer and an amygdala analogy, not to evolution — the evolution reading is my bridge, flagged in the prose. The "emotion = evolved prior on the value function" formulation is my synthesis across these literatures; most do not use the word "emotion."</p>
+
+<p class="source">Q4 · Machines’ value layer — Source: Ouyang et al. (2022), "Training language models to follow instructions with human feedback" (InstructGPT), NeurIPS 2022 — reward model + PPO critic, the value signal already shipping in RLHF systems; Lightman, Kosaraju, …, Sutskever, Cobbe (2023), "Let’s Verify Step by Step," arXiv:2305.20050 (ICLR 2024) — process reward models; Sutskever’s co-authorship (9th author) is confirmed. Automatic PRM as an inline RL value signal: Wang et al. (2024), "Math-Shepherd," ACL 2024 (arXiv:2312.08935). Contested-trend caveat: DeepSeek-AI (2025), "DeepSeek-R1" (arXiv:2501.12948; published in *Nature*), which deliberately rejected neural PRMs over reward hacking in favor of rule-based outcome rewards (AIME 2024 pass@1 79.8%). Figure 3 head-to-head numbers: process vs. outcome verifier on MATH (78.2% vs. 72.4%, Lightman et al.); process-RL vs. outcome-RL on Mistral-7B (GSM8K 84.1 vs. 81.8, Math-Shepherd); value-based VAPO vs. value-free GRPO/DAPO on AIME 2024 (60.4 vs. 47–50, Qwen2.5-32B) from Yue et al. (2025), "VAPO," arXiv:2504.05118. Caveat: the verifier rows and the RL rows test different *uses* of the value signal, and Math-Shepherd's RL used 7B bases (LLaMA2 / Mistral), so Figure 3 compares modes of use, not one controlled axis. The two-layer framing (value function vs. prior on it) and the claim that current systems have the value layer but lack the evolved-prior layer are my synthesis.</p>
+
+<p class="source">Q5 · Emotional awareness — Source: Schwarz & Clore (1983), "Mood, misattribution, and judgments of well-being," *JPSP* 45(3):513–523 (the canonical mood-misattribution/discounting demonstration), with the theory stated in Schwarz (2012), "Feelings-as-information theory," *Handbook of Theories of Social Psychology* Vol. 1:289–308. The provenance-check procedure ("what reward is this predicting; is it about this decision") is my own synthesis of the Q1–Q3 material.</p>
