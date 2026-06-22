@@ -1,12 +1,12 @@
 ---
-title: 'David Silver and Stuart Russell on Reward'
-description: 'What should the reward signal capture? The reward-is-enough thesis meets the case against fixed objectives'
+title: 'Does It Matter What We Reward in Training a Frontier Model?'
+description: 'The reward-is-enough thesis meets the case against fixed objectives.'
 pubDate: '2026-06-10'
 series: 'agi-qa'
 location: 'Mountain View, California, United States'
 ---
 
-*What should the reward signal capture? The reward-is-enough thesis meets the case against fixed objectives*
+*The reward-is-enough thesis meets the case against fixed objectives.*
 
 *The researchers:*
 

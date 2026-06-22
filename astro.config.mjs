@@ -10,6 +10,7 @@ export default defineConfig({
 	redirects: {
 		'/blog/does-using-ai-make-us-less-curious': '/blog/what-ai-does-to-curiosity',
 		'/blog/sutton-on-experience': '/blog/why-human-data-wont-reach-agi',
+		'/blog/silver-russell-on-reward': '/blog/what-we-reward-frontier-model',
 	},
 	integrations: [mdx(), sitemap()],
 	fonts: [
