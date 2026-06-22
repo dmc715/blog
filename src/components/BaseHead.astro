@@ -58,3 +58,56 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<!-- Analytics (self-hosted, cookieless): page views + active reading time -->
+<script is:inline>
+	(function () {
+		var EP = 'https://chengxueer-analytics.xueercheng.workers.dev/collect';
+		var sid =
+			self.crypto && crypto.randomUUID
+				? crypto.randomUUID()
+				: String(Date.now()) + Math.random().toString(16).slice(2);
+		var path = location.pathname;
+		var active = 0,
+			last = Date.now(),
+			hidden = document.hidden,
+			done = false;
+		function flush() {
+			var now = Date.now();
+			if (!hidden) active += now - last;
+			last = now;
+		}
+		function send(t, sec) {
+			try {
+				var b = JSON.stringify({
+					t: t,
+					s: sid,
+					p: path,
+					r: t === 'pv' ? document.referrer : undefined,
+					sec: sec || 0,
+				});
+				if (navigator.sendBeacon)
+					navigator.sendBeacon(EP, new Blob([b], { type: 'text/plain' }));
+				else fetch(EP, { method: 'POST', body: b, keepalive: true });
+			} catch (e) {}
+		}
+		send('pv', 0);
+		var iv = setInterval(function () {
+			flush();
+			send('hb', Math.round(active / 1000));
+		}, 15000);
+		document.addEventListener('visibilitychange', function () {
+			flush();
+			hidden = document.hidden;
+			last = Date.now();
+			if (hidden) send('hb', Math.round(active / 1000));
+		});
+		addEventListener('pagehide', function () {
+			if (done) return;
+			done = true;
+			flush();
+			clearInterval(iv);
+			send('hb', Math.round(active / 1000));
+		});
+	})();
+</script>
