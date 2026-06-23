@@ -62,6 +62,10 @@ const { title, description, image = FallbackImage } = Astro.props;
 <!-- Analytics (self-hosted, cookieless): page views + active reading time -->
 <script is:inline>
 	(function () {
+		try {
+			if (location.search.indexOf('notrack=1') !== -1) localStorage.setItem('cx-notrack', '1');
+			if (localStorage.getItem('cx-notrack') === '1') return;
+		} catch (e) {}
 		var EP = 'https://chengxueer-analytics.xueercheng.workers.dev/collect';
 		var sid =
 			self.crypto && crypto.randomUUID
