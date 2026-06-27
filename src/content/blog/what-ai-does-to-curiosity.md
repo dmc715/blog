@@ -8,19 +8,15 @@ location: 'Mountain View, California, United States'
 
 *Where AI intervenes in the loop that turns a knowledge gap into understanding — and which kind of AI dulls it versus sharpens it.*
 
-*The researchers:*
-
-*George Loewenstein — professor of economics and psychology at Carnegie Mellon University; author of the information-gap theory of curiosity.*
-
-*Celeste Kidd — associate professor of psychology at the University of California, Berkeley; and Benjamin Hayden — professor of neurosurgery at Baylor College of Medicine; co-authors of the review "The Psychology and Neuroscience of Curiosity."*
-
-*Andrew Barto — professor emeritus at the University of Massachusetts Amherst (UMass Amherst); co-developer of reinforcement learning (RL) and co-author of its standard textbook; 2024 Turing Award laureate with Richard Sutton. Satinder Singh — professor of computer science at the University of Michigan and research scientist at Google DeepMind; known for the intrinsic-motivation and optimal-reward work cited below.*
-
-*Jürgen Schmidhuber — scientific director of the Swiss AI Lab IDSIA (Switzerland) and a professor at the King Abdullah University of Science and Technology (KAUST); author of the formal "artificial curiosity" theory (curiosity as reward for compression progress).*
-
-*Kenneth Stanley — Senior Vice President of Open-Endedness at Lila Sciences; previously led the open-endedness team at OpenAI and was a professor at the University of Central Florida (UCF); invented the novelty-search and NEAT algorithms. Joel Lehman — researcher at the University of Oxford; co-led OpenAI's Open-Endedness Team and is lead author of the novelty-search paper; with Stanley wrote "Why Greatness Cannot Be Planned."*
-
-*Also appearing: Aristotle and Robert White, on what curiosity is for; Daniel Berlyne, on what triggers it; Wolfram Schultz, Peter Dayan and P. Read Montague, on dopamine and prediction error; Plato, Denis Diderot, Vannevar Bush, and Betsy Sparrow with Daniel Wegner, on the technologies of knowledge; Stuart Russell (University of California, Berkeley; author of "Human Compatible"), on enfeeblement; and Max Tegmark (Massachusetts Institute of Technology; author of "Life 3.0"), on the "Reversion" scenario.*
+<details class="cast">
+<summary>The researchers mentioned — who they are and why they’re cited</summary>
+<p><em>George Loewenstein — professor of economics and psychology at Carnegie Mellon University; author of the information-gap theory of curiosity.</em></p>
+<p><em>Celeste Kidd — associate professor of psychology at the University of California, Berkeley; and Benjamin Hayden — professor of neurosurgery at Baylor College of Medicine; co-authors of the review "The Psychology and Neuroscience of Curiosity."</em></p>
+<p><em>Andrew Barto — professor emeritus at the University of Massachusetts Amherst (UMass Amherst); co-developer of reinforcement learning (RL) and co-author of its standard textbook; 2024 Turing Award laureate with Richard Sutton. Satinder Singh — professor of computer science at the University of Michigan and research scientist at Google DeepMind; known for the intrinsic-motivation and optimal-reward work cited below.</em></p>
+<p><em>Jürgen Schmidhuber — scientific director of the Swiss AI Lab IDSIA (Switzerland) and a professor at the King Abdullah University of Science and Technology (KAUST); author of the formal "artificial curiosity" theory (curiosity as reward for compression progress).</em></p>
+<p><em>Kenneth Stanley — Senior Vice President of Open-Endedness at Lila Sciences; previously led the open-endedness team at OpenAI and was a professor at the University of Central Florida (UCF); invented the novelty-search and NEAT algorithms. Joel Lehman — researcher at the University of Oxford; co-led OpenAI's Open-Endedness Team and is lead author of the novelty-search paper; with Stanley wrote "Why Greatness Cannot Be Planned."</em></p>
+<p><em>Also appearing: Aristotle and Robert White, on what curiosity is for; Daniel Berlyne, on what triggers it; Wolfram Schultz, Peter Dayan and P. Read Montague, on dopamine and prediction error; Plato, Denis Diderot, Vannevar Bush, and Betsy Sparrow with Daniel Wegner, on the technologies of knowledge; Stuart Russell (University of California, Berkeley; author of "Human Compatible"), on enfeeblement; and Max Tegmark (Massachusetts Institute of Technology; author of "Life 3.0"), on the "Reversion" scenario.</em></p>
+</details>
 
 *A note on sources: every quotation in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own synthesis. None of these researchers wrote about what AI does to human curiosity; wherever an answer carries their work onto that question, the extension is my inference rather than their claim.*
 

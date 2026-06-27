@@ -8,23 +8,17 @@ location: 'New York, New York, United States'
 
 *A stroke that removed a man’s emotions also removed his ability to decide. The function of emotion in intelligence — emotion as a value function, that value function as an evolution-installed prior — and what machines built without one are missing, and whether they should be.*
 
-*The thinkers:*
-
-*Ilya Sutskever — co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence (SSI); on emotion as a value function, and on why a system that can reason but cannot rank its options is worse at making decisions.*
-
-*Also appearing:*
-
-*Antonio Damasio — neurologist whose patients, after damage to the emotion-related prefrontal cortex, kept their intelligence but lost the ability to decide; originator of the somatic marker hypothesis.*
-
-*Richard Sutton and Andrew Barto — founders of modern reinforcement learning (RL) and 2024 Turing Award laureates, on value functions and temporal-difference (TD) learning.*
-
-*Yann LeCun — chief AI scientist at Meta, on an immutable intrinsic cost as "the equivalent of emotions."*
-
-*Joost Broekens — on a reinforcement-learning theory of emotion.*
-
-*Satinder Singh — on where reward comes from (the optimal reward problem).*
-
-*Anthony Zador — on the genomic bottleneck as a compressed innate prior.*
+<details class="cast">
+<summary>The thinkers mentioned — who they are and why they’re cited</summary>
+<p><em>Ilya Sutskever — co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence (SSI); on emotion as a value function, and on why a system that can reason but cannot rank its options is worse at making decisions.</em></p>
+<p><em>Also appearing:</em></p>
+<p><em>Antonio Damasio — neurologist whose patients, after damage to the emotion-related prefrontal cortex, kept their intelligence but lost the ability to decide; originator of the somatic marker hypothesis.</em></p>
+<p><em>Richard Sutton and Andrew Barto — founders of modern reinforcement learning (RL) and 2024 Turing Award laureates, on value functions and temporal-difference (TD) learning.</em></p>
+<p><em>Yann LeCun — chief AI scientist at Meta, on an immutable intrinsic cost as "the equivalent of emotions."</em></p>
+<p><em>Joost Broekens — on a reinforcement-learning theory of emotion.</em></p>
+<p><em>Satinder Singh — on where reward comes from (the optimal reward problem).</em></p>
+<p><em>Anthony Zador — on the genomic bottleneck as a compressed innate prior.</em></p>
+</details>
 
 *A note on sources: every quotation and number in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own arithmetic or synthesis. The answers extrapolate from those primary sources; the thinkers have not themselves made these claims.*
 

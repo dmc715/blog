@@ -177,6 +177,26 @@ details.sidequest[open] summary {
 	margin-bottom: 0.75em;
 }
 
+details.cast {
+	margin: 1.5em 0;
+	border-left: 3px solid rgb(196, 196, 190);
+	padding: 0 0 0 1.25em;
+}
+
+details.cast summary {
+	font-family: var(--font-syne), 'Syne', sans-serif;
+	color: var(--navy);
+	cursor: pointer;
+}
+
+details.cast[open] summary {
+	margin-bottom: 0.75em;
+}
+
+details.cast p {
+	margin: 0.5em 0;
+}
+
 figure.chart svg {
 	width: 100%;
 	height: auto;

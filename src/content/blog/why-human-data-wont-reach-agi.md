@@ -8,19 +8,15 @@ location: 'Mountain View, California, United States'
 
 *Human data scaled enormously and is nearly spent — and even so it cannot reach AGI. What experience captures that human data cannot, and why generating new knowledge requires acting rather than reading.*
 
-*The thinkers:*
-
-*Richard Sutton — professor of computing science at the University of Alberta and a founder of modern reinforcement learning (RL); 2024 Turing Award laureate with Andrew Barto; author of the verification principle and co-author of "Welcome to the Era of Experience."*
-
-*David Silver — leads reinforcement learning research at Google DeepMind; led the AlphaGo and AlphaZero teams; co-author of "Welcome to the Era of Experience."*
-
-*Pablo Villalobos — lead author of Epoch AI's study "Will we run out of data? Limits of LLM scaling based on human-generated data."*
-
-*Ilya Sutskever — co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence; on the end of the pre-training era.*
-
-*Ilia Shumailov — then at the University of Oxford; lead author of "AI models collapse when trained on recursively generated data" (Nature, 2024).*
-
-*Also appearing: Andrew Barto, co-author with Sutton of the field's standard RL textbook, on reward and value; and two systems — AlphaProof (Google DeepMind) and DeepSeek-R1 — as cases of self-generated data that improves rather than degrades.*
+<details class="cast">
+<summary>The thinkers mentioned — who they are and why they’re cited</summary>
+<p><em>Richard Sutton — professor of computing science at the University of Alberta and a founder of modern reinforcement learning (RL); 2024 Turing Award laureate with Andrew Barto; author of the verification principle and co-author of "Welcome to the Era of Experience."</em></p>
+<p><em>David Silver — leads reinforcement learning research at Google DeepMind; led the AlphaGo and AlphaZero teams; co-author of "Welcome to the Era of Experience."</em></p>
+<p><em>Pablo Villalobos — lead author of Epoch AI's study "Will we run out of data? Limits of LLM scaling based on human-generated data."</em></p>
+<p><em>Ilya Sutskever — co-founder and former chief scientist of OpenAI, now co-founder of Safe Superintelligence; on the end of the pre-training era.</em></p>
+<p><em>Ilia Shumailov — then at the University of Oxford; lead author of "AI models collapse when trained on recursively generated data" (Nature, 2024).</em></p>
+<p><em>Also appearing: Andrew Barto, co-author with Sutton of the field's standard RL textbook, on reward and value; and two systems — AlphaProof (Google DeepMind) and DeepSeek-R1 — as cases of self-generated data that improves rather than degrades.</em></p>
+</details>
 
 *A note on sources: every quotation in this post is itemized, question by question, in the Sources appendix at the end, with flags for what is verbatim, what is reported secondhand, and what is my own synthesis. None of these thinkers framed their work as an answer to "will human data reach AGI" in these exact terms; wherever an answer carries their work onto that question, the extension is my inference rather than their claim.*
 
